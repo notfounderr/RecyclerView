@@ -8,7 +8,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.RecyclerViewViewHolder> {
+
+    private ArrayList<RecyclerViewItem> arrayList;
+
     public static class RecyclerViewViewHolder extends RecyclerView.ViewHolder{
 
         public ImageView imageView;
@@ -23,6 +28,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         }
     }
 
+    public RecyclerViewAdapter(ArrayList<RecyclerViewItem> arrayList){
+        this.arrayList = arrayList;
+    }
     @NonNull
     @Override
     public RecyclerViewViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
@@ -33,11 +41,15 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewViewHolder recyclerViewViewHolder, int i) {
+        RecyclerViewItem recyclerViewItem = arrayList.get(i);
 
+        recyclerViewViewHolder.imageView.setImageResource(recyclerViewItem.getImageResourse());
+        recyclerViewViewHolder.textView.setText(recyclerViewItem.getText1());
+        recyclerViewViewHolder.textView2.setText(recyclerViewItem.getText2());
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return arrayList.size();
     }
 }

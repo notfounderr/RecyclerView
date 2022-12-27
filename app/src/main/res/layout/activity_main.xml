@@ -7,10 +7,11 @@
     tools:context=".MainActivity">
 
     <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="4dp"
-        android:background="@android:color/holo_green_dark"
+        android:background="#F44336"
         android:scrollbars="vertical"
          />
 </RelativeLayout>
